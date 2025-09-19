@@ -70,13 +70,13 @@ export default function WelcomeRideLogic() {
 
           <div className="rlw-qr">
             <QRCodeCanvas
-              value={window.location.origin + targetPath}
+              value={"https://jenete.github.io/ridelogicai/"}
               size={144}
               includeMargin={false}
               level="M"
             />
             <span className="rlw-qr-caption">
-              {window.location.origin + targetPath}
+              {"https://jenete.github.io/ridelogicai/"}
             </span>
           </div>
         </motion.div>
