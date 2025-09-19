@@ -1,0 +1,92 @@
+/* Backdrop overlay */
+.location-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Popup card */
+.location-popup {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.location-popup h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.location-popup p {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 1.5rem;
+}
+
+.location-popup-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.location-popup-actions button {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.location-popup-actions button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.location-popup-actions button:not(.cancel-btn) {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.location-popup-actions .cancel-btn {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+/* Bottom toast */
+.location-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #10b981;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+}
+
+/* Fade in animation (optional) */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

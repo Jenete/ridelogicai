@@ -1,0 +1,56 @@
+.rl-time-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+  max-width: 250px;
+  margin: auto;
+}
+
+.rl-time-box {
+  display: flex;
+  align-items: center;
+}
+
+.rl-time-box select {
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+.rl-time-box select:focus {
+  outline: none;
+  border-color: #0077ff;
+}
+
+.rlai-time-separator,
+.rl-time-separator {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.fa-icons {
+  margin-right: 0.3rem;
+  color: #0077ff;
+}
+
+@media (max-width: 600px) {
+  .rl-time-selector {
+    gap: 0.2rem;
+    justify-content: space-between;
+  }
+
+  .rl-time-box select {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
+}
