@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ridelogicai/static/css/main.b5db2c13.css",
+    "main.js": "/ridelogicai/static/js/main.361a5b1f.js",
+    "index.html": "/ridelogicai/index.html",
+    "main.b5db2c13.css.map": "/ridelogicai/static/css/main.b5db2c13.css.map",
+    "main.361a5b1f.js.map": "/ridelogicai/static/js/main.361a5b1f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5db2c13.css",
+    "static/js/main.361a5b1f.js"
+  ]
+}
