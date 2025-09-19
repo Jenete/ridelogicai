@@ -1,0 +1,101 @@
+/* VoiceInputEditor.css */
+
+.voice-editor-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.voice-editor-wrapper textarea.voice-input-field {
+  flex: 1;
+  min-height: 80px;
+  max-width: 100%;
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  transition: border-color 0.3s ease;
+  outline: none;
+  resize: vertical;
+}
+
+.voice-editor-wrapper textarea.voice-input-field:focus {
+  border-color: #3b82f6;
+}
+
+.voice-editor-wrapper button {
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-editor-wrapper button:hover {
+  background-color: #2563eb;
+}
+
+.voice-editor-wrapper .send-btn {
+  border-radius: 10px;
+  background-color: #10b981;
+}
+
+.voice-editor-wrapper .send-btn:hover {
+  background-color: #059669;
+}
+
+.voice-editor-wrapper .mic-btn.recording {
+  background-color: #facc15;
+  color: #1f2937;
+  animation: pulseMic 1s infinite ease-in-out;
+}
+
+@keyframes pulseMic {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .voice-editor-wrapper {
+    flex-direction: column;
+    align-items: center;
+     max-width: 280px;
+  }
+
+  .voice-editor-wrapper textarea.voice-input-field {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  .voice-editor-wrapper button,
+  .voice-editor-wrapper .send-btn {
+    width: 90%;
+    border-radius: 10px;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}

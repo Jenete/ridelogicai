@@ -1,0 +1,294 @@
+/* ---------------------------------- */
+/* Global Styling & Fonts        */
+/* ---------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #6a11cb;
+  --secondary-color: #2575fc;
+  --text-primary: #f0f4f8;
+  --text-secondary: #c9d6e5;
+  --bg-dark: #0f172a;
+  --bg-light: #1e293b;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --border-color: rgba(255, 255, 255, 0.15);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --glow-shadow: 0 0 15px rgba(106, 17, 203, 0.7), 0 0 30px rgba(37, 117, 252, 0.5);
+}
+
+body, html {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* ---------------------------------- */
+/* Main Layout & Structure      */
+/* ---------------------------------- */
+.rlw-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #171c35 100%);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+color: var(--text-primary);
+  z-index: 1;
+}
+
+.rlw-wrap::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(106, 17, 203, 0.15), transparent 75%);
+  animation: bg-pulse 15s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes bg-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------- */
+/* Hero Section              */
+/* ---------------------------------- */
+.rlw-hero {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.rlw-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rlw-brand {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rlw-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text-secondary);
+  margin-top: 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------------------------------- */
+/* Search-like Button        */
+/* ---------------------------------- */
+.rlw-searchlike {
+  width: 100%;
+  max-width: 450px;
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.rlw-searchlike:hover {
+  background: rgba(46, 59, 81, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.rlw-ico {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-right: 1rem;
+}
+
+.rlw-placeholder {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ---------------------------------- */
+/* Feature Cards          */
+/* ---------------------------------- */
+.rlw-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .rlw-panels {
+    flex-direction: row;
+  }
+}
+
+.rlw-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  flex: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.rlw-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--glow-shadow);
+}
+
+.rlw-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(90deg, #b08dff, #80d0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rlw-card-title .fa {
+  font-size: 1.75rem;
+}
+
+.rlw-card-text {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.rlw-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+
+.rlw-qr canvas {
+  border: 4px solid var(--text-primary);
+  border-radius: 8px;
+}
+
+.rlw-qr-caption {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  word-break: break-all;
+}
+
+/* ---------------------------------- */
+/* Footer                */
+/* ---------------------------------- */
+.rlw-footer {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: auto;
+  opacity: 0.7;
+}
+
+/* ---------------------------------- */
+/* Floating AI Button        */
+/* ---------------------------------- */
+.rlw-ai-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--glow-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  z-index: 100;
+}
+
+/* ---------------------------------- */
+/* Modal                 */
+/* ---------------------------------- */
+.rlw-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.rlw-modal {
+  background-color: var(--bg-dark);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
+  height: 85vh;
+  max-width: 600px;
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+
+.rlw-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.rlw-modal-close:hover {
+  color: var(--text-primary);
+}
