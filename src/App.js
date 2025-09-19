@@ -12,6 +12,7 @@ function App() {
           <Route path="/" element={<WelcomeRideLogic />} />
           <Route path="/aichat" element={<RideLogicAi />} />
           <Route path="/search" element={<RouteFinder />} />
+          <Route path="*" element={<WelcomeRideLogic />} />
         </Routes>
       </Router>
       
