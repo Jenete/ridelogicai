@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ridelogicai/static/css/main.b5db2c13.css",
-    "main.js": "/ridelogicai/static/js/main.10ad8245.js",
+    "main.css": "/ridelogicai/static/css/main.6ebeb8f6.css",
+    "main.js": "/ridelogicai/static/js/main.c6ee9ff6.js",
     "index.html": "/ridelogicai/index.html",
-    "main.b5db2c13.css.map": "/ridelogicai/static/css/main.b5db2c13.css.map",
-    "main.10ad8245.js.map": "/ridelogicai/static/js/main.10ad8245.js.map"
+    "main.6ebeb8f6.css.map": "/ridelogicai/static/css/main.6ebeb8f6.css.map",
+    "main.c6ee9ff6.js.map": "/ridelogicai/static/js/main.c6ee9ff6.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5db2c13.css",
-    "static/js/main.10ad8245.js"
+    "static/css/main.6ebeb8f6.css",
+    "static/js/main.c6ee9ff6.js"
   ]
 }
