@@ -1,0 +1,63 @@
+.cr-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 16px;
+  background: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.cr-fetch-btn {
+  background: #0077ff;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cr-select {
+  margin: 12px 0;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.cr-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.cr-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 0.9em;
+  transition: 0.2s;
+}
+
+.cr-btn-on_bus { background: #28a745; }
+.cr-btn-delayed { background: #f39c12; }
+.cr-btn-departed { background: #3498db; }
+.cr-btn-full { background: #e74c3c; }
+
+.cr-message {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+.cr-message {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #2c3e50;
+}
+
+.cr-message::before {
+  content: "📍 ";
+}

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { getBestTimesFromTimetable } from "../services/TranscribeAndChatService";
+import { getBestTimes } from "../services/TranscribeAndChatService";
 import "./styles/ConfirmSearch.css";
+import BestTimesResult from "./BestTimesResult";
+import SaveRouteButton from "./SaveRouteButton";
 
 export default function ConfirmSearch({ from, to, time, routeIds }) {
   const [loading, setLoading] = useState(false);
@@ -14,7 +16,7 @@ export default function ConfirmSearch({ from, to, time, routeIds }) {
     setError(null);
 
     try {
-      const res = await getBestTimesFromTimetable(routeIds, time, to, from);
+      const res = await getBestTimes({routeIds, time, to, from});
       setResult(res);
     } catch (err) {
       setError(err.message || "Something went wrong");
@@ -42,7 +44,6 @@ export default function ConfirmSearch({ from, to, time, routeIds }) {
                       </p>
 
       <div className="rlc-summary">
-        
         <details>
           <summary>
             <div> <i className="fa fa-road fa-icons"></i><strong> Routes:</strong></div>
@@ -66,6 +67,7 @@ export default function ConfirmSearch({ from, to, time, routeIds }) {
           </>
         )}
       </motion.button>
+        <SaveRouteButton routeIds={routeIds} from={from} to={to} time={time}/>
 
       <AnimatePresence>
         {result && (
@@ -76,7 +78,7 @@ export default function ConfirmSearch({ from, to, time, routeIds }) {
             exit={{ opacity: 0, y: 20 }}
           >
             <h4>Result</h4>
-            <p>{result}</p>
+            <BestTimesResult result={result}/>
           </motion.div>
         )}
 

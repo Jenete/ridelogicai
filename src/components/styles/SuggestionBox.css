@@ -1,0 +1,43 @@
+.sb-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.sb-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.sb-input:focus {
+  border-color: #4fced9;
+  box-shadow: 0 0 6px rgba(79, 206, 217, 0.4);
+}
+
+.sb-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.sb-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sb-item:hover {
+  background: #f0f8ff;
+}

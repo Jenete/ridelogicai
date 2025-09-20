@@ -75,6 +75,29 @@ export async function askGptFromText(prompt, history = []) {
   return data.choices[0].message.content;
 }
 
+// src/controllers/chatController.js
+
+export async function askText(prompt, history = []) {
+  try {
+    const res = await fetch("http://localhost:5000/ask-text", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt, history }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Server error");
+
+    return data.response;
+  } catch (err) {
+    console.error("askText error:", err);
+    throw err;
+  }
+}
+
+
 
 const fileCache = new Map(); // cache: filename → file_id
 
@@ -157,3 +180,27 @@ Use the uploaded timetable(s) as the source of truth. Keep it short. Provide two
   }
 }
 
+export async function getBestTimes({ routeIds, time, to, from }) {
+  try {
+    const res = await fetch("http://localhost:5000/best-times", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        pdf_files: routeIds, // array of PDF file paths or names
+        time,
+        whereto: to,
+        fromWhere: from,
+      }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Server error");
+
+    return data.result;
+  } catch (err) {
+    console.error("getBestTimes error:", err);
+    throw err;
+  }
+}

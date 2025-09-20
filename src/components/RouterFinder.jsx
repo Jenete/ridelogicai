@@ -5,7 +5,10 @@ import "./styles/RouteFinder.css";
 import TimeSelector from "./TimeSelector";
 import { stringSimilarity } from "../utils/similarity";
 import ConfirmSearch from "./ConfirmSearch";
+import WeatherToast from './WeatherToast';
 import {FareController} from "../controllers/FareController";
+import SavedRoutesList from "./SavedRoutesList";
+import SuggestionBox from "./SuggestionBox";
 
 export default function RouteFinder() {
   const [start, setStart] = useState("");
@@ -14,6 +17,7 @@ export default function RouteFinder() {
   const [results, setResults] = useState([]);
   const [selectedRoutes, setSelectedRoutes] = useState([]);
   const [step, setStep] = useState(0); // 0=input, 1=results, 2=confirm
+  const stops = RouteController.getAllStops();
 
   const handleTimeChange = (t) => setTime(t);
 
@@ -55,22 +59,12 @@ export default function RouteFinder() {
             <h3>Step 1: Enter trip details</h3>
             <div className="rlai-input-group">
               <i className="fa fa-map-marker fa-icons"></i>
-              <input
-                type="text"
-                placeholder="Enter current location"
-                value={start}
-                onChange={(e) => setStart(e.target.value)}
-              />
+              <SuggestionBox suggestions={stops} onSelect={(val)=> setStart(val)} placeholder={"Type location..."}/>
             </div>
 
             <div className="rlai-input-group">
               <i className="fa fa-flag-checkered fa-icons"></i>
-              <input
-                type="text"
-                placeholder="Enter destination"
-                value={to}
-                onChange={(e) => setTo(e.target.value)}
-              />
+              <SuggestionBox suggestions={stops} onSelect={(val)=> setTo(val)} placeholder={"Type destination..."}/>
             </div>
 
             <motion.button
@@ -81,6 +75,7 @@ export default function RouteFinder() {
             >
               <i className="fa fa-search"></i> Search
             </motion.button>
+            <SavedRoutesList/>
           </motion.div>
         )}
       </AnimatePresence>
@@ -98,6 +93,41 @@ export default function RouteFinder() {
           >
             <h3>Step 2: Select travel time</h3>
             <TimeSelector onTimeChange={handleTimeChange} />
+            
+            
+
+            <div className="rlai-nav-buttons">
+              <button onClick={() => setStep(0)} className="rlai-prev-btn">
+                ← Back
+              </button>
+              <button
+                onClick={() => setStep(2)}
+                className="rlai-next-btn"
+                disabled={!time}
+              >
+                Next →
+              </button>
+            </div>
+
+            
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {/* Slide 3: Route */}
+      <AnimatePresence mode="wait">
+        {step === 2 && results.length > 0 && (
+          <motion.div
+            key="slide-results"
+            className="rlai-results"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.4 }}
+          >
+            <button onClick={() => setStep(1)} className="rlai-prev-btn">
+                ← Back
+              </button>
+            <h3>Step 3: Routes</h3>
             <h4>Matching routes ({results.length})</h4>
             {results.map((route) => (
               <motion.div
@@ -157,13 +187,13 @@ onClick={(e) => {
             
 
             <div className="rlai-nav-buttons">
-              <button onClick={() => setStep(0)} className="rlai-prev-btn">
+              <button onClick={() => setStep(1)} className="rlai-prev-btn">
                 ← Back
               </button>
               <button
-                onClick={() => setStep(2)}
+                onClick={() => setStep(3)}
                 className="rlai-next-btn"
-                disabled={!time}
+                disabled={!(selectedRoutes && selectedRoutes.length > 0)}
               >
                 Next →
               </button>
@@ -176,7 +206,7 @@ onClick={(e) => {
 
       {/* Slide 3: Confirm */}
       <AnimatePresence mode="wait">
-        {step === 2 && selectedRoutes && selectedRoutes.length > 0 && time && (
+        {step === 3 && selectedRoutes && selectedRoutes.length > 0 && time && (
           <motion.div
             key="slide-confirm"
             className="rlai-confirm"
@@ -193,12 +223,14 @@ onClick={(e) => {
               routeIds={selectedRoutes.map((route) => route.pdf)}
             />
             <div className="rlai-nav-buttons">
-              <button onClick={() => setStep(1)} className="rlai-prev-btn">
+              <button onClick={() => setStep(2)} className="rlai-prev-btn">
                 ← Back
               </button>
             </div>
           </motion.div>
         )}
+                <WeatherToast/>
+        
       </AnimatePresence>
     </div>
   );

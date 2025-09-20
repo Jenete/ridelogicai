@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./styles/TimeSelector.css";
 
-export default function TimeSelector({ onTimeChange }) {
-  const [hour, setHour] = useState("08");
-  const [minute, setMinute] = useState("00");
+export default function TimeSelector({ onTimeChange, defaultTime = "08:00" }) {
+  const splittime = defaultTime.split(":");
+  const [hour, setHour] = useState(splittime[0]);
+  const [minute, setMinute] = useState(splittime[1]);
 
   const handleChange = (h, m) => {
     const formatted = `${h}:${m}`;

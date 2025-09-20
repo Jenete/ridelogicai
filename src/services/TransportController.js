@@ -1,5 +1,5 @@
 // controllers/TransportController.js
-import { askGptFromText } from './TranscribeAndChatService';
+import { askText } from './TranscribeAndChatService';
 import {
   queryBusSchedule,
   queryFare,
@@ -34,7 +34,7 @@ Return a JSON object:
 }
 `;
 
-    const aiIntentResult = await askGptFromText(detailedPrompt, history);
+    const aiIntentResult = await askText(detailedPrompt, history);
     let parsed;
     
     try {
@@ -42,7 +42,7 @@ Return a JSON object:
     } catch {
       return {
         response: "⚠️ I couldn't fully understand that. Could you rephrase it?",
-        history: [...updatedHistory, { role: 'ai', content: "⚠️ I couldn't understand that." }]
+        history: [...updatedHistory, { role: 'system', content: "⚠️ I couldn't understand that." }]
       };
     }
 
@@ -53,15 +53,15 @@ Return a JSON object:
       const reply = intentResponses[intent];
       return {
         response: reply,
-        history: [...updatedHistory, { role: 'ai', content: reply }]
+        history: [...updatedHistory, { role: 'system', content: reply }]
       };
     }
 
     // 2. If info is missing
     if (missingInfo.missing) {
       return {
-        response: `ℹ️ ${missingInfo.message}`,
-        history: [...updatedHistory, { role: 'ai', content: `ℹ️ ${missingInfo.message}` }]
+        response: `${missingInfo.message}`,
+        history: [...updatedHistory, { role: 'system', content: `${missingInfo.message}` }]
       };
     }
 
@@ -87,10 +87,10 @@ Return a JSON object:
     }
 
     return {
-      response: `🤖 ${result}`,
+      response: `${result}`,
       history: [
         ...updatedHistory,
-        { role: 'ai', content: `🤖 ${result}` }
+        { role: 'system', content: `${result}` }
       ]
     };
 
@@ -100,7 +100,7 @@ Return a JSON object:
       response: "🚨 Something went wrong while processing your request.",
       history: [
         ...updatedHistory,
-        { role: 'ai', content: "🚨 Something went wrong while processing your request." }
+        { role: 'system', content: "🚨 Something went wrong while processing your request." }
       ]
     };
   }

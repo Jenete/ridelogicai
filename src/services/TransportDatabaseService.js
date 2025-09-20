@@ -1,5 +1,7 @@
 // services/TransportDatabaseService.js
 
+import { FareController } from "../controllers/FareController";
+
 const database = {
   routes: [
     {
@@ -51,39 +53,18 @@ function simulateDelay(ms = 600) {
 }
 
 export async function queryBusSchedule(from, to, time = null) {
-  await simulateDelay();
-
-  const route = database.routes.find(
-    (r) =>
-      r.from.toLowerCase() === from.toLowerCase() &&
-      r.to.toLowerCase() === to.toLowerCase()
-  );
-
-  if (!route) {
-    return `❌ No schedule found from ${from} to ${to}. Try rephrasing or checking your spelling.`;
-  }
-
-  const schedule = time
-    ? route.times.includes(time)
-      ? `Next bus at ${time}.`
-      : `No bus exactly at ${time}, but available at: ${route.times.join(', ')}.`
-    : `Next available buses: ${route.times.join(', ')}.`;
-
-  return `🚌 Schedule from ${from} to ${to}: ${schedule}`;
+  const navigationUrl = window.location.origin;
+  return `Schedule from ${from} to ${to}: ${navigationUrl}/search?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&time=${encodeURIComponent(time || "")}`;
 }
 
+
 export async function queryFare(from, to) {
-  await simulateDelay();
 
-  const route = database.routes.find(
-    (r) =>
-      r.from.toLowerCase() === from.toLowerCase() &&
-      r.to.toLowerCase() === to.toLowerCase()
-  );
+  const fare = FareController.getFareByRoute(`${from} to ${to}`);
 
-  return route
-    ? `💸 Fare from ${from} to ${to} is ${route.fare}.`
-    : `❌ Sorry, we couldn’t find fare info for ${from} to ${to}.`;
+  return fare
+    ? `Fare from ${from} to ${to} is R${fare}. This may not be accurate.`
+    : `Sorry, we couldn’t find fare info for ${from} to ${to}.`;
 }
 
 export async function queryRouteInfo(to, from) {

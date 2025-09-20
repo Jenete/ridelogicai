@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 1rem;
   font-family: Arial, sans-serif;
+  margin-bottom: 10rem;
 }
 
 .rlai-routefinder-container h4, .rlai-routefinder-container h3 {
@@ -59,7 +60,6 @@
 
 
 .rlai-route-card {
-  background: #f9f9f9;
   border-radius: 12px;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -67,9 +67,7 @@
   cursor: pointer;
 }
 
-.rlai-route-card:hover {
-  background: #eef6ff;
-}
+
 
 
 
@@ -156,6 +154,9 @@
 }
 
 @media (max-width: 600px) {
+  .rlai-route-label{
+    font-size: 12px;
+  }
   .rlai-route-line {
     gap: 0.6rem;
     padding: 0.6rem;
@@ -265,6 +266,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+  .rlai-bus-route{
+    display: flex;
+    flex-direction: row;
   }
   .rlai-route-fare {
     align-self: flex-end;

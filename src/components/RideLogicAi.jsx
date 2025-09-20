@@ -5,12 +5,13 @@ import './styles/RideLogicAi.css';
 import VoiceInputEditor from './VoiceInputEditor';
 import UserLocationPopup from './UserLocationPopup';
 import WeatherToast from './WeatherToast'
+import LinkHighlighter from './LinkHighlighter';
 // import { speakText } from '../services/TTSService';
 // import TypingEffect from './TypingEffect';
 
 export default function RideLogicAi() {
   const [messages, setMessages] = useState([
-    { role: 'ai', content: '👋 Hi there! Need help getting around?' },
+    { role: 'system', content: '👋 Hi there! Need help getting around?' },
   ]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -28,7 +29,7 @@ export default function RideLogicAi() {
     if (!aiReply?.trim()) return;
     setError(null);
     //speakText(aiReply);
-    setMessages(prev => [...prev, { role: 'ai', content: aiReply }]);
+    setMessages(prev => [...prev, { role: 'system', content: aiReply }]);
     setLoading(false);
   };
 
@@ -58,13 +59,13 @@ export default function RideLogicAi() {
 ) : (
   msg.content
 )} */}
-{msg.content}
+<LinkHighlighter text={msg.content}/>
             
           </motion.div>
         ))}
         {loading && (
           <motion.div
-            className="ride-ai-msg ai"
+            className="ride-ai-msg system"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, repeat: Infinity, repeatType: 'reverse' }}

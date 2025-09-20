@@ -40,7 +40,7 @@ export default function WelcomeRideLogic() {
           onClick={() => navigate(targetPath)}
         >
           <i className="fa fa-search rlw-ico"></i>
-          <span className="rlw-placeholder">Where to? (Tap to plan a trip)</span>
+          <span className="rlw-placeholder">Where to?</span>
         </motion.button>
       </header>
 
@@ -51,9 +51,9 @@ export default function WelcomeRideLogic() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.12, duration: 0.35 }}
         >
-          <h3 className="rlw-card-title"><i className="fa fa-bus"></i> Fast route search</h3>
+          <h3 className="rlw-card-title"><i className="fa fa-bus"></i> Fast bus route search</h3>
           <p className="rlw-card-text">
-            Type your start and destination—get clean, humanized results powered by real timetables.
+            Type your start and destination get clean, humanized results powered by real timetables.
           </p>
         </motion.div>
 
@@ -79,6 +79,30 @@ export default function WelcomeRideLogic() {
               {"https://jenete.github.io/ridelogicai/"}
             </span>
           </div>
+        </motion.div>
+        <motion.div
+          className="rlw-card rlw-card--left"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.12, duration: 0.35 }}
+          onClick={()=> navigate("/fares")}
+        >
+          <h3 className="rlw-card-title"><i className="fa fa-bus"></i> Estimate bus fare</h3>
+          <p className="rlw-card-text">
+            Know how much to pay early on.
+          </p>
+        </motion.div>
+        <motion.div
+          className="rlw-card rlw-card--left"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.12, duration: 0.35 }}
+          onClick={()=> navigate("/news")}
+        >
+          <h3 className="rlw-card-title"><i className="fa fa-bus"></i> News updates</h3>
+          <p className="rlw-card-text">
+            Real time updates on your buses
+          </p>
         </motion.div>
       </section>
 

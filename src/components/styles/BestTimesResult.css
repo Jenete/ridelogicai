@@ -1,0 +1,19 @@
+.best-times-container {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.translation-card {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.translation-card h4 {
+  margin-bottom: 8px;
+}

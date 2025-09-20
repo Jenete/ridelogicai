@@ -1,0 +1,109 @@
+/* FareEstimator.css */
+
+
+
+/* Container */
+.fe-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* Titles and Text */
+.fe-title {
+  color: var(--primary-color);
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.fe-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.1em;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* Input Section */
+.fe-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.fe-inputs > div {
+  width: 100%;
+}
+
+/* Button */
+.fe-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.fe-btn:hover {
+  background-color: #0056b3;
+}
+
+.fe-btn:active {
+  background-color: #004085;
+}
+
+/* Error and Result Messages */
+.fe-error {
+  color: var(--error-color);
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.fe-result {
+  background-color: #e9f5e9;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+.fe-result h3 {
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.fe-fare {
+  color: var(--accent-color);
+  font-size: 2.5em;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .fe-container {
+    padding: 25px;
+  }
+
+  .fe-title {
+    font-size: 2em;
+  }
+}

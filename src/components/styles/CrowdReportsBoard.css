@@ -1,0 +1,96 @@
+.crb-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fdfdfd;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.crb-title {
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.crb-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+.crb-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px 0;
+}
+
+.crb-btn {
+  background: #0077ff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.crb-btn:hover {
+  background: #005fcc;
+}
+
+.crb-filter {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.crb-reports {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.crb-report {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.crb-status {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.crb-time {
+  margin-left: auto;
+  color: #888;
+  font-size: 0.8em;
+}
+
+.crb-location {
+  margin-left: 10px;
+  font-size: 0.75em;
+  color: #555;
+}
+
+.crb-on_bus { border-left: 6px solid #28a745; }
+.crb-delayed { border-left: 6px solid #f39c12; }
+.crb-departed { border-left: 6px solid #3498db; }
+.crb-full { border-left: 6px solid #e74c3c; }
+
+.crb-empty {
+  text-align: center;
+  color: #888;
+  padding: 12px;
+}
