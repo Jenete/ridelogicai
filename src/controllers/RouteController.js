@@ -98,7 +98,7 @@ getRoutesByStop(stopName) {
   /**
    * Build URL for the PDF file (served by Flask backend)
    */
-  getTimetableUrl(routeId, baseUrl = "http://localhost:5000/file/") {
+  getTimetableUrl(routeId, baseUrl = "https://backend-ridelogicai.onrender.com/file/") {
     const route = this.getRouteById(routeId);
     return route ? `${baseUrl}${route.pdf}` : null;
   },

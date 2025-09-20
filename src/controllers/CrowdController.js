@@ -1,7 +1,7 @@
 export const CrowdController = {
   async submitReport(routeId, stop, status, userId = "anon", location = null) {
     try {
-      const res = await fetch("http://localhost:5000/crowd-report", {
+      const res = await fetch("https://backend-ridelogicai.onrender.com/crowd-report", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const CrowdController = {
       if (routeId) params.append("routeId", routeId);
       if (stop) params.append("stop", stop);
 
-      const res = await fetch(`http://localhost:5000/crowd-reports?${params.toString()}`);
+      const res = await fetch(`https://backend-ridelogicai.onrender.com/crowd-reports?${params.toString()}`);
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.error || "Failed to fetch reports");

@@ -79,7 +79,7 @@ export async function askGptFromText(prompt, history = []) {
 
 export async function askText(prompt, history = []) {
   try {
-    const res = await fetch("http://localhost:5000/ask-text", {
+    const res = await fetch("https://backend-ridelogicai.onrender.com/ask-text", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -182,7 +182,7 @@ Use the uploaded timetable(s) as the source of truth. Keep it short. Provide two
 
 export async function getBestTimes({ routeIds, time, to, from }) {
   try {
-    const res = await fetch("http://localhost:5000/best-times", {
+    const res = await fetch("https://backend-ridelogicai.onrender.com/best-times", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
